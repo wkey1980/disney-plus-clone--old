@@ -11,7 +11,7 @@ import {
 // import { provider } from "../../firebase";
 
 const Header = (props) => {
-  const dispach = useDispatch();
+  const dispatch = useDispatch();
   const history = useHistory();
   const username = useSelector(selectUserName);
   const userPhoto = useSelector(selectUserPhoto);
@@ -28,7 +28,7 @@ const Header = (props) => {
   };
 
   const setUser = (user) => {
-    dispach(
+    dispatch(
       setUserLoginDetails({
         name: user.displayName,
         email: user.email,

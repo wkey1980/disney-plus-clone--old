@@ -13,7 +13,7 @@ import {
 const Header = (props) => {
   const dispatch = useDispatch();
   const history = useHistory();
-  const username = useSelector(selectUserName);
+  const userName = useSelector(selectUserName);
   const userPhoto = useSelector(selectUserPhoto);
 
   const handleAuth = () => {
@@ -43,38 +43,39 @@ const Header = (props) => {
         <img src="/images/logo/logo.svg" alt="Disney+" />
       </Logo>
 
-      {
-        !userName ?
+      {!userName ? (
         <Login onclick={handleAuth}>Login</Login>
-      }
-
-      <NavMenu>
-        <a href="/home">
-          <img src="/images/icons/home-icon.svg" alt="" />
-          <span>HOME</span>
-        </a>
-        <a>
-          <img src="/images/icons/search-icon.svg" alt="SEARCH" />
-          <span>SEARCH</span>
-        </a>
-        <a>
-          <img src="/images/icons/watchlist-icon.svg" alt="WATCHLIST" />
-          <span>WATCHLIST</span>
-        </a>
-        <a>
-          <img src="/images/icons/original-icon.svg" alt="ORIGINALS" />
-          <span>ORIGINALS</span>
-        </a>
-        <a>
-          <img src="/images/icons/movie-icon.svg" alt="MOVIES" />
-          <span>MOVIES</span>
-        </a>
-        <a>
-          <img src="/images/icons/series-icon.svg" alt="SERIES" />
-          <span>SERIES</span>
-        </a>
-      </NavMenu>
-      <Login onClick={handleAuth}>Login</Login>
+      ) : (
+        <>
+          <NavMenu>
+            <a href="/home">
+              <img src="/images/icons/home-icon.svg" alt="" />
+              <span>HOME</span>
+            </a>
+            <a>
+              <img src="/images/icons/search-icon.svg" alt="SEARCH" />
+              <span>SEARCH</span>
+            </a>
+            <a>
+              <img src="/images/icons/watchlist-icon.svg" alt="WATCHLIST" />
+              <span>WATCHLIST</span>
+            </a>
+            <a>
+              <img src="/images/icons/original-icon.svg" alt="ORIGINALS" />
+              <span>ORIGINALS</span>
+            </a>
+            <a>
+              <img src="/images/icons/movie-icon.svg" alt="MOVIES" />
+              <span>MOVIES</span>
+            </a>
+            <a>
+              <img src="/images/icons/series-icon.svg" alt="SERIES" />
+              <span>SERIES</span>
+            </a>
+          </NavMenu>
+          <UserImg src={userPhoto} alt={userName} />
+        </>
+      )}
     </Nav>
   );
 };

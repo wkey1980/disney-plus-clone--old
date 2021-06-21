@@ -104,3 +104,7 @@ export const Login = styled.a`
     border-color: transparent;
   }
 `;
+
+export const UserImg = styled.img`
+  height: 100%;
+`;
